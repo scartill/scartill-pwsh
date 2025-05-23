@@ -8,19 +8,19 @@ function amend {
 }
 
 function revision {
-  git describe --tags --always --dirty
+  $revision = $(git describe --always --dirty).Split("-").Get(0)
+  Write-Output $revision
+  Set-Clipboard $revision
 }
 
 function autocommit(
   [switch]$All = $false, [switch]$Dry = $false, [string]$Context = ""
 ) {
-  $FullContext = "Use current branch name as a prefix if it is not main." + $Context
-
   if ($All) {
     git add -u
   }
 
-  $draft = Invoke-Expression "lumen draft --context '$FullContext'"
+  $draft = Invoke-Expression "lumen draft --context '$Context'"
 
   if (-not $draft) {
     Write-Host "No draft found"
