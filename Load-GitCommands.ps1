@@ -24,7 +24,6 @@ function autocommit(
   $branchContext = "This commit is on branch $branch."
   $policy = "Prefix the commit message with a commit type."
   $fullContext = @($policy, $branchContext, $Context) -join " "
-  Write-Host "Context: $fullContext"
   $draft = Invoke-Expression "lumen draft --context '$fullContext'"
 
   if (-not $draft) {
