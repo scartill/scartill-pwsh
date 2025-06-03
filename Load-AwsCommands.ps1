@@ -1,3 +1,3 @@
 function awsl([string]$SsoName) {
-  aws sso login --sso-session ${SsoName}-resnick-sso
+  aws sso login --sso-session ${SsoName}
 }
