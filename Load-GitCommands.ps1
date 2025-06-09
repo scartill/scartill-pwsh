@@ -31,10 +31,12 @@ function autocommit(
     return
   }
 
+  $commitCmd = "git commit -m '$draft'"
+
   if ($Dry) {
-    Write-Host "Would commit '$draft'"
+    Write-Host "Would run: $commitCmd"
   } else {
-    git commit -m $draft
+    Invoke-Expression $commitCmd
   }
 }
 
@@ -42,5 +44,5 @@ function autocommit(
 Import-Module posh-git
 
 # Git
-$env:GIT_SSH=(Get-Command ssh).Source
+$env:GIT_SSH = (Get-Command ssh).Source
 $env:GIT_EXTERNAL_DIFF = "difft"
