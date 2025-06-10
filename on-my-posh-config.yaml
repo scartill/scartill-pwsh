@@ -6,13 +6,11 @@ blocks:
     # newline: true
     segments:
       - type: aws
-        background: '#c386f1'
-        foreground: '#ffffff'
-        powerline_symbol: ""
-        properties:
-          display_default: false
         style: powerline
-        template: ' \ue7ad {{ .Profile }} '
+        powerline_symbol: 
+        foreground: "#ffffff"
+        background: "#FFA400"
+        template: "  {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
       - type: git
         style: powerline
         powerline_symbol: ' '
@@ -34,21 +32,17 @@ blocks:
             'feat/*': '🚀 '
             'bug/*': '🐛 '
       - type: node
-        background: '#6CA35E'
-        foreground: '#ffffff'
-        powerline_symbol: ""
-        properties:
-          fetch_version: true
         style: powerline
-        template: ' \ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }} '
+        powerline_symbol: 
+        foreground: "#ffffff"
+        background: "#6CA35E"
+        template: "  {{ .Full }} "
       - type: go
-        background: '#8ED1F7'
-        foreground: '#111111'
-        powerline_symbol: ""
-        properties:
-          fetch_version: true
         style: powerline
-        template: ' \ue626 {{ if .Error }}{{ .Error }}{{ else }}{{ .Full }}{{ end }} '
+        powerline_symbol: 
+        foreground: "#111111"
+        background: "#8ED1F7"
+        template: "  {{ .Full }} "
       - type: python
         background: '#FFDE57'
         foreground: '#111111'
@@ -70,16 +64,16 @@ blocks:
         background: '#FFD664'
         properties:
           cache_duration: 168h
-      - background: '#00897b'
+      - type: status
+        style: diamond
+        foreground: "#ffffff"
+        background: "#00897b"
         background_templates:
-          - '{{ if gt .Code 0 }}#e91e63{{ end }}'
-        foreground: '#ffffff'
+          - "{{ if .Error }}#e91e63{{ end }}"
+        trailing_diamond: 
+        template: "<#193549></>  "
         properties:
           always_enabled: true
-        style: powerline
-        powerline_symbol: ""
-        template: ' \ue23a '
-        type: exit
   - alignment: left
     newline: true
     segments:
