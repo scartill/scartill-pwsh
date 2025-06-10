@@ -8,7 +8,7 @@ blocks:
       - type: aws
         background: '#c386f1'
         foreground: '#ffffff'
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         properties:
           display_default: false
         style: powerline
@@ -36,7 +36,7 @@ blocks:
       - type: node
         background: '#6CA35E'
         foreground: '#ffffff'
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         properties:
           fetch_version: true
         style: powerline
@@ -44,7 +44,7 @@ blocks:
       - type: go
         background: '#8ED1F7'
         foreground: '#111111'
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         properties:
           fetch_version: true
         style: powerline
@@ -52,7 +52,7 @@ blocks:
       - type: python
         background: '#FFDE57'
         foreground: '#111111'
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         properties:
           display_mode: environment
           fetch_virtual_env: true
@@ -77,7 +77,7 @@ blocks:
         properties:
           always_enabled: true
         style: powerline
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         template: ' \ue23a '
         type: exit
   - alignment: left
@@ -85,7 +85,7 @@ blocks:
     segments:
       - type: path
         style: powerline
-        powerline_symbol: '\ue0b0'
+        powerline_symbol: ""
         foreground: '#ffffff'
         background: '#61AFEF'
         properties:
