@@ -7,10 +7,9 @@ blocks:
     segments:
       - type: aws
         style: powerline
-        powerline_symbol: 
         foreground: "#ffffff"
         background: "#FFA400"
-        template: "  {{.Profile}}{{if .Region}}@{{.Region}}{{end}}"
+        template: "  {{.Profile}}{{if .Region}}@{{.Region}}{{end}} "
       - type: git
         style: powerline
         powerline_symbol: ' '
@@ -30,7 +29,8 @@ blocks:
           source: cli
           mapped_branches:
             'feat/*': '🚀 '
-            'bug/*': '🐛 '
+            'fix/*': '🐛 '
+            'staging': '🏠 '
       - type: node
         style: powerline
         powerline_symbol: 
@@ -64,25 +64,26 @@ blocks:
         background: '#FFD664'
         properties:
           cache_duration: 168h
+      - type: path
+        style: powerline
+        powerline_symbol: ""
+        foreground: '#ffffff'
+        background: '#61AFEF'
+        properties:
+          style: folder
       - type: status
         style: diamond
         foreground: "#ffffff"
         background: "#00897b"
         background_templates:
           - "{{ if .Error }}#e91e63{{ end }}"
-        # trailing_diamond: 
-        template: ""
+        trailing_diamond: 
+        template: "<#193549></>  "
         properties:
           always_enabled: true
+  # NB: Multiple segments are not supported in this version of oh-my-posh
   # - alignment: left
   #   newline: true
   #   segments:
-  #     - type: path
-  #       style: powerline
-  #       powerline_symbol: ""
-  #       foreground: '#ffffff'
-  #       background: '#61AFEF'
-  #       properties:
-  #         style: folder
 console_title_template: '{{ .Folder }}'
 final_space: true
