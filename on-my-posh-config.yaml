@@ -70,19 +70,19 @@ blocks:
         background: "#00897b"
         background_templates:
           - "{{ if .Error }}#e91e63{{ end }}"
-        trailing_diamond: 
-        template: "<#193549></>  "
+        # trailing_diamond: 
+        template: ""
         properties:
           always_enabled: true
-  - alignment: left
-    newline: true
-    segments:
-      - type: path
-        style: powerline
-        powerline_symbol: ""
-        foreground: '#ffffff'
-        background: '#61AFEF'
-        properties:
-          style: folder
+  # - alignment: left
+  #   newline: true
+  #   segments:
+  #     - type: path
+  #       style: powerline
+  #       powerline_symbol: ""
+  #       foreground: '#ffffff'
+  #       background: '#61AFEF'
+  #       properties:
+  #         style: folder
 console_title_template: '{{ .Folder }}'
 final_space: true
