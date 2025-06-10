@@ -51,7 +51,7 @@ blocks:
           display_mode: environment
           fetch_virtual_env: true
         style: powerline
-        template: ' \ue235 {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }} '
+        template: '  {{ if .Error }}{{ .Error }}{{ else }}{{ .Venv }}{{ end }} '
       - type: kotlin
         style: powerline
         powerline_symbol: ' '
