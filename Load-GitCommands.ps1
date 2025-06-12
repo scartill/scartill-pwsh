@@ -14,7 +14,10 @@ function revision {
 }
 
 function autocommit(
-  [switch]$All = $false, [switch]$Dry = $false, [string]$Context = ""
+  [switch]$All = $false,
+  [switch]$Dry = $false,
+  [string]$Context = "",
+  [switch]$Push = $false
 ) {
   if ($All) {
     git add -u
@@ -37,6 +40,16 @@ function autocommit(
     Write-Host "Would run: $commitCmd"
   } else {
     Invoke-Expression $commitCmd
+  }
+
+  if ($Push) {
+    $pushCmd = "git push"
+
+    if ($Dry) {
+      Write-Host "Would run: $pushCmd"
+    } else {
+      Invoke-Expression $pushCmd
+    }
   }
 }
 
