@@ -118,7 +118,7 @@
           "background": "#565656",
           "foreground": "#faa029",
           "style": "powerline",
-          "template": "\ue7ad {{.Profile}}{{if .Region}}@{{.Region}}{{end}}",
+          "template": " \ue7ad {{.Profile}}{{if .Region}}@{{.Region}}{{end}} ",
           "type": "aws"
         },
         {
