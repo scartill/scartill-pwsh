@@ -13,7 +13,8 @@
       "chore": "Other changes that don't modify src or test files",
       "revert": "Reverts a previous commit",
       "feat": "A new feature",
-      "fix": "A bug fix"
+      "fix": "A bug fix",
+      "data": "Changes related to test data, ML datasets, their definitions and metadata"
     }
   }
 }

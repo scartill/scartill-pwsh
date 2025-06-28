@@ -59,3 +59,4 @@ Import-Module posh-git
 # Git
 $env:GIT_SSH = (Get-Command ssh).Source
 $env:GIT_EXTERNAL_DIFF = "difft"
+Set-Alias -Name bash -Value "C:\Program Files\Git\bin\bash.exe"
