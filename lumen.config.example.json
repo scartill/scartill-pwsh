@@ -1,6 +1,7 @@
 
 {
   "provider": "claude",
+  "model": "claude-sonnet-4-20250514",
   "api_key": "API_KEY",
   "draft": {
     "commit_types": {
