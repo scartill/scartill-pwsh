@@ -24,3 +24,7 @@ function Move-Files-From-Clipboard() {
 function icat([string]$Image) {
   chafa -f sixels $Image
 }
+
+function vcat([string]$Video) {
+  ffmpeg -i $Video -vframes 1 -f image2pipe -c:v png - 2>$null | chafa -f sixels
+}
