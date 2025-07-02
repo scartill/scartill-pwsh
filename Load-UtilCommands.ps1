@@ -20,3 +20,7 @@ function Move-Files-From-Clipboard() {
     Move-Item $file -Destination $(Get-Location)
   }
 }
+
+function icat([string]$Image) {
+  chafa -f sixels $Image
+}
