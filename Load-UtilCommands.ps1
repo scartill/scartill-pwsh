@@ -26,5 +26,5 @@ function icat([string]$Image) {
 }
 
 function vcat([string]$Video) {
-  ffmpeg -i $Video -vframes 1 -f image2pipe -c:v png - 2>$null | chafa -f sixels
+  ffmpeg -i $Video -vframes 1 -vf "scale=640:400" -f image2pipe -c:v png - 2>$null | chafa -f sixels
 }
