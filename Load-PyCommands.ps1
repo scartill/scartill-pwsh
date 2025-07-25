@@ -27,3 +27,7 @@ function pt() {
 
   Invoke-Expression $cmd
 }
+
+
+# Load the uv completion
+uv generate-shell-completion powershell | Out-String | Invoke-Expression
