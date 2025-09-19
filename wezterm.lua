@@ -27,7 +27,6 @@ wezterm.on("gui-startup", function(cmd)
     tab_scripts:set_title("scripts")
     local tab_reqs, tabs_pane = win:spawn_tab { workspace = ws }
     tab_reqs:set_title("requirements")
-
     tab_fusion:activate()
   else
     local tab, pane, win = mux.spawn_window{
@@ -40,11 +39,9 @@ end)
 return {
     default_prog = { "pwsh.exe" },
     default_cwd = projects,
-
-	color_scheme = "Nord",
-	font = wezterm.font_with_fallback({"MesloLGM Nerd Font", "Consolas" }),
-	font_size = 12,
+    color_scheme = "Horizon Dark (base16)",
+    font = wezterm.font_with_fallback({"MesloLGM Nerd Font", "Consolas" }),
+    font_size = 12,
     window_frame = { font_size = 14.0, },
-    window_decorations = "TITLE",
     default_gui_startup_args = { "--maximize" },
 }
