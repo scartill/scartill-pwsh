@@ -26,11 +26,6 @@ wezterm.on("gui-startup", function(cmd)
     pane_frontend:send_text("cd ../safir-hmi/frontend\r\n")
     pane_frontend:send_text("npm run dev\r\n")
 
-    local tab_health, pane_health = win:spawn_tab { workspace = ws }
-    tab_health:set_title("health")
-    pane_health:send_text("cd scripts\r\n")
-    pane_health:send_text("./SubscribeTo-Health.ps1\r\n")
-
     local tab_scripts, pane_scripts = win:spawn_tab { workspace = ws }
     tab_scripts:set_title("scripts")
 
@@ -51,23 +46,23 @@ wezterm.on("gui-startup", function(cmd)
     tab_dask:set_title("dask")
     pane_dask:send_text("uv run eyt dask scheduler\r\n")
 
-    local tab_progress, pane_progress = win:spawn_tab { workspace = ws }
-    tab_progress:set_title("progress")
-    pane_progress:send_text(
-      "uv run eyt dask worker progress --cluster-uri tcp://localhost:8786\r\n"
-    )
-
     local tab_worker, pane_worker = win:spawn_tab { workspace = ws }
     tab_worker:set_title("worker")
     pane_worker:send_text(
-      "uv run eyt --aws-profile embytest dask worker gpu --environment dev --cluster-uri tcp://localhost:8786\r\n"
+      "uv run eyt --aws-profile embytest dask workers --environment dev --cluster-uri tcp://localhost:8786\r\n"
     )
 
     tab:activate()
+
+  elseif ws == "wsl" then
+    local tab, pane, win = mux.spawn_window{
+      workspace = ws,
+      cwd = projects,
+      args = { "wsl.exe", }
+    }
   else
     local tab, pane, win = mux.spawn_window{
       workspace = ws,
-      args = { "pwsh.exe", },
     }
   end
 end)
