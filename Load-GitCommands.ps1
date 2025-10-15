@@ -7,6 +7,19 @@ function amend {
   git commit --amend
 }
 
+# GitHub aliases
+function ghpc {
+  gh pr create --web
+}
+
+function ghpv {
+  gh pr view --web
+}
+
+function ghrv {
+  gh repo view --web
+}
+
 function revision {
   $revision = $(git describe --always --dirty).Split("-").Get(0)
   Write-Output $revision
@@ -58,5 +71,5 @@ Import-Module posh-git
 
 # Git
 $env:GIT_SSH = (Get-Command ssh).Source
-# $env:GIT_EXTERNAL_DIFF = "difft"
+$env:GIT_EXTERNAL_DIFF = "difft"
 Set-Alias -Name bash -Value "C:\Program Files\Git\bin\bash.exe"
