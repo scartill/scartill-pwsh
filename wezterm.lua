@@ -56,7 +56,26 @@ wezterm.on("gui-startup", function(cmd)
     )
 
     tab:activate()
+  elseif ws == "tapgame" then
+    local tab, pane_sam, win = mux.spawn_window{
+      workspace = ws,
+      cwd = adsight
+    }
+    tab:set_title("tapgame")
+    pane_sam:send_text("cd tapgame\r")
+    pane_sam:send_text("./devenv.ps1\r")
+    pane_sam:send_text("cd sam\r")
 
+    local tab_test, pane_test = win:spawn_tab { workspace = ws }
+    tab_test:set_title("test")
+    pane_test:send_text("cd tapgame\r")
+    pane_test:send_text("./devenv.ps1\r")
+    pane_test:send_text("cd sam/test\r")
+
+    local tab_tools, pane_tools = win:spawn_tab { workspace = ws }
+    tab_tools:set_title("tools")
+    pane_tools:send_text("cd adstools\r")
+    tab:activate()
   elseif ws == "wsl" then
     local tab, pane, win = mux.spawn_window{
       workspace = ws,
